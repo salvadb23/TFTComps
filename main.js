@@ -31,8 +31,8 @@ let createObj = (arr) => {
     return res
 };
 
-let test = {"Inferno": 3, "Warden": 4, "Poison": 3}
-let createComposition = (obj) => {
+let test = {"Inferno": 3, "Warden": 4}
+let createCombination = (obj) => {
     let traits = createObj(json);
     let arr = []
     let index = 0
@@ -42,9 +42,22 @@ let createComposition = (obj) => {
         while(a = cmb.next()) arr[index].push(a);
         index += 1
     };
-    console.log(arr[0])
-    console.log(arr[1])
-    console.log(arr[2])
+    return arr
+};
+
+let createComposition = (arr) => {
+    for(let i = 0; i < arr.length - 1; i++){
+        let temp = []
+        for(let comp of arr[i]){
+            for(let y = 0; y < arr[i+1].length - 1; y++){
+                let temp2 = [...comp, ...arr[i+1][y]]
+                temp.push(temp2)
+            }
+
+        }
+        arr[i+1] = temp
+    }
+    return arr[arr.length - 1]
 }
 
 let champNames = (arr) => {
@@ -55,4 +68,5 @@ let champNames = (arr) => {
     return res
 }
 
-console.log(createComposition(test))
+let example = createCombination(test)
+console.log(createComposition(example))
