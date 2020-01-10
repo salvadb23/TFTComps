@@ -9,6 +9,15 @@
   flex-direction: row;
   color: white;
 }
+button {
+  position: absolute;
+  right: 40%;
+  top: 50%;
+  border-radius: 5px;
+  border: none;
+  font-size: 30px;
+  padding: 20px;
+}
 .hero-section {
   background-color: var(--primary);
   flex: 1;
@@ -43,6 +52,7 @@
   flex-direction: column;
   justify-content: space-around;
   margin: 15px;
+  width: 300px;
 }
 
 .trait-option option {
