@@ -2,6 +2,17 @@ let json = require('./champions');
 let traitfile = require('./traits');
 const Combinatorics = require('js-combinatorics');
 
+let traitJSON = arr => {
+  let res = {};
+  for (let trait of arr) {
+    res[trait.name] = {};
+    for (let set of trait.sets) {
+      res[trait.name][set] = 1;
+    }
+  }
+  return res;
+};
+
 let createObj = arr => {
   let res = {};
   for (let champ of json) {
