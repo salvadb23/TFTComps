@@ -1,4 +1,5 @@
 let json = require("./champions");
+let traitfile = require("./traits")
 const { combinations } = require("mathjs");
 const Combinatorics = require('js-combinatorics');
 
@@ -6,16 +7,50 @@ let champArr = [
     { champion: 'Brand', cost: 4, traits: [ 'Inferno', 'Mage' ] },
     { champion: 'Braum', cost: 2, traits: [ 'Glacial', 'Warden' ] },
     { champion: 'Diana', cost: 1, traits: [ 'Inferno', 'Assassin' ] },
-]
-let traitCheck = (arr) => {
+];
+
+let traitJSON = (arr) => {
     let res = {};
-    for(let champ of arr){
-        for(let trait of champ.traits){
-            res[trait] = res[trait] + 1 || 1
+    for(let trait of arr){
+        res[trait.name] = {}
+        for(let set of trait.sets){
+            res[trait.name][set] = 1
         }
     }
     return res
 };
+
+let traitCheck = (arr) => {
+    let res = {};
+    let teamArr = []
+    let champObj = rewriteJSON(json)
+    let traitsets = traitJSON(traitfile)
+    for(let team of arr){
+        let total = 0
+        for(let champ of team){
+            for(let trait of champObj[champ].traits){
+                res[trait] = res[trait] + 1 || 1
+            }
+        }
+        for(let key in res){
+            let num = Object.keys(traitsets[key])
+            if(res[key] >= num[0]){
+                total += 1
+            }
+        }
+        teamArr.push([{ team: team, traits: res, synergies: total }])
+        res = {}
+    }
+    return teamArr.sort((a,b) => b[0].synergies - a[0].synergies)
+};
+
+let rewriteJSON = (arr) => {
+    let res = {};
+    for(let champ of arr){
+        res[champ.champion] = { cost: champ.cost, traits: champ.traits}
+    }
+    return res
+}
 
 let createObj = (arr) => {
     let res = {}
@@ -31,7 +66,7 @@ let createObj = (arr) => {
     return res
 };
 
-let test = {"Inferno": 3, "Warden": 4}
+let test = {"Blademaster": 4, "Desert": 4, "Assassin": 3}
 let createCombination = (obj) => {
     let traits = createObj(json);
     let arr = []
@@ -46,14 +81,16 @@ let createCombination = (obj) => {
 };
 
 let createComposition = (arr) => {
-    for(let i = 0; i < arr.length - 1; i++){
+    let length = arr.length
+    for(let i = 0; i < length -1 ; i++){
+        console.log(i)
         let temp = []
         for(let comp of arr[i]){
-            for(let y = 0; y < arr[i+1].length - 1; y++){
+            for(let y = 0; y < arr[i+1].length; y++){
                 let temp2 = [...comp, ...arr[i+1][y]]
-                temp.push(temp2)
+                let uniq = [...new Set(temp2)]
+                temp.push(uniq)
             }
-
         }
         arr[i+1] = temp
     }
@@ -69,4 +106,6 @@ let champNames = (arr) => {
 }
 
 let example = createCombination(test)
-console.log(createComposition(example))
+let teams = createComposition(example)
+// console.log(traitJSON(traitfile))
+console.log(traitCheck(teams)[1])

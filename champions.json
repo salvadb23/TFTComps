@@ -32,6 +32,14 @@
     ]
   },
   {
+    "champion": "Ammumu",
+    "cost": 5,
+    "traits": [
+      "Inferno",
+      "Warden"
+    ]
+  },
+  {
     "champion": "Brand",
     "cost": 4,
     "traits": [
@@ -128,23 +136,6 @@
     ]
   },
   {
-    "champion": "Lux",
-    "cost": 7,
-    "traits": [
-      "Crystal",
-      "Electric",
-      "Glacial",
-      "Inferno",
-      "Light",
-      "Steel",
-      "Ocean",
-      "Shadow",
-      "Cloud",
-      "Woodland",
-      "Avatar"
-    ]
-  },
-  {
     "champion": "Malphite",
     "cost": 4,
     "traits": [
@@ -231,17 +222,6 @@
     "traits": [
       "Electric",
       "Warden"
-    ]
-  },
-  {
-    "champion": "Qiyana",
-    "cost": 3,
-    "traits": [
-      "Ocean",
-      "Inferno",
-      "Cloud",
-      "Woodland",
-      "Assassin"
     ]
   },
   {
