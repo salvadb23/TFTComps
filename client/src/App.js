@@ -14,10 +14,9 @@ function App() {
             {trait.name}
             <select name="name?" id="cool">
               <option value="">Please choose a number</option>
-              {numOfTraits.map(num => {
-                console.log(trait.name)
+              {numOfTraits.map(num => (
                 <option value={`${num}`}>{num}</option>
-              })}
+              ))}
             </select>
           </label>
         </div>
