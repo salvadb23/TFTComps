@@ -1,0 +1,63 @@
+:root {
+  --primary: #0f4c75;
+  --secondary: #bbe1fa;
+  --left-mg: 30px;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+.hero-section {
+  background-color: var(--primary);
+  flex: 1;
+}
+
+.hero-section h1 {
+  color: white;
+  margin: var(--left-mg);
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.hero-section h3 {
+  margin-left: var(--left-mg);
+  font-weight: bold;
+}
+
+.trait-option {
+  flex: 2;
+}
+
+.trait-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: var(--left-mg);
+}
+
+.trait-section label[for='traitName'] {
+  color: white;
+  font-size: 23px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px;
+}
+
+.trait-option option {
+  margin-top: 20px;
+}
+
+.team-display {
+  background-color: var(--secondary);
+  flex: 1;
+}
+
+.team-display h2 {
+  text-align: center;
+  margin: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+}
