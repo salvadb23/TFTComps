@@ -66,10 +66,7 @@ const createCombination = obj => {
   for (let key of Object.keys(obj)) {
     arr.push([]);
     let cmb = Combinatorics.combination(traits[key], obj[key]);
-<<<<<<< HEAD
-=======
     let a = cmb;
->>>>>>> react-select
     while ((a = cmb.next())) arr[index].push(a);
     index += 1;
   }
@@ -93,10 +90,4 @@ const createComposition = arr => {
   return arr[arr.length - 1];
 };
 
-<<<<<<< HEAD
-let example = createCombination(test);
-let teams = createComposition(example);
-console.log(traitCheck(teams)[1]);
-=======
 module.exports = { createCombination, createComposition, traitCheck };
->>>>>>> react-select
