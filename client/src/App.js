@@ -2,17 +2,29 @@ import React, { useState } from 'react';
 import './App.css';
 import Select from 'react-select';
 const traitJson = require('./traits.json');
+const {
+  createCombination,
+  createComposition,
+  traitCheck
+} = require('./helpers/main');
 
 function App() {
   const [synergyCount, setSynergyCount] = useState(0);
   const [choice, setChoice] = useState({});
   const [team, setTeam] = useState();
 
+  function createTeam() {
+    const array = createCombination(choice);
+    const teams = createComposition(array);
+    const _ = traitCheck(teams).slice(0, 10);
+
+    setTeam(_);
+  }
+
   function handleChange(e, name) {
     setSynergyCount(synergyCount + 1);
     //If synergy count is greater than 9? Do something
     setChoice(prevState => ({ ...prevState, [name]: e }));
-    console.log(choice);
   }
 
   function renderTraitOptions() {
@@ -38,6 +50,25 @@ function App() {
     });
   }
 
+  function renderTeam() {
+    return (
+      team &&
+      team.map(array =>
+        array.map(obj => (
+          <div
+            style={{
+              color: 'black',
+              textAlign: 'center',
+              marginBottom: '10px'
+            }}
+          >
+            {obj.team.join(' ')}
+          </div>
+        ))
+      )
+    );
+  }
+
   return (
     <div className="App">
       <section className="hero-section">
@@ -46,10 +77,11 @@ function App() {
         <section className="trait-section">{renderTraitOptions()}</section>
       </section>
 
-      <button onClick={() => console.log('hey')}>Get Team</button>
+      <button onClick={() => createTeam()}>Get Team</button>
 
       <section className="team-display">
         <h2>Your Team</h2>
+        {renderTeam()}
       </section>
     </div>
   );
