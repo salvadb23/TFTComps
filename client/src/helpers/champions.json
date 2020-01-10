@@ -22,10 +22,7 @@
   {
     "champion": "Ammumu",
     "cost": 5,
-    "traits": [
-      "Inferno",
-      "Warden"
-    ]
+    "traits": ["Inferno", "Warden"]
   },
   {
     "champion": "Brand",
@@ -143,14 +140,6 @@
     "traits": ["Electric", "Warden"]
   },
   {
-<<<<<<< HEAD
-    "champion": "Qiyana",
-    "cost": 3,
-    "traits": ["Ocean", "Inferno", "Cloud", "Woodland", "Assassin"]
-  },
-  {
-=======
->>>>>>> 5da85381c5cec17c94afce5487d8bf098d76df16
     "champion": "RekSai",
     "cost": 2,
     "traits": ["Steel", "Predator"]
