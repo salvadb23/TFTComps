@@ -13,6 +13,38 @@ let traitJSON = arr => {
   return res;
 };
 
+let traitCheck = arr => {
+  let res = {};
+  let teamArr = [];
+  let champObj = rewriteJSON(json);
+  let traitsets = traitJSON(traitfile);
+  for (let team of arr) {
+    let total = 0;
+    for (let champ of team) {
+      for (let trait of champObj[champ].traits) {
+        res[trait] = res[trait] + 1 || 1;
+      }
+    }
+    for (let key in res) {
+      let num = Object.keys(traitsets[key]);
+      if (res[key] >= num[0]) {
+        total += 1;
+      }
+    }
+    teamArr.push([{ team: team, traits: res, synergies: total }]);
+    res = {};
+  }
+  return teamArr.sort((a, b) => b[0].synergies - a[0].synergies);
+};
+
+let rewriteJSON = arr => {
+  let res = {};
+  for (let champ of arr) {
+    res[champ.champion] = { cost: champ.cost, traits: champ.traits };
+  }
+  return res;
+};
+
 let createObj = arr => {
   let res = {};
   for (let champ of json) {
@@ -57,9 +89,6 @@ const createComposition = arr => {
   return arr[arr.length - 1];
 };
 
-let test = { Blademaster: 4, Desert: 4, Assassin: 3 };
-
 let example = createCombination(test);
 let teams = createComposition(example);
-console.log(traitJSON(traitfile));
 console.log(traitCheck(teams)[1]);
