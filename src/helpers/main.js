@@ -83,7 +83,6 @@ export const createComposition = arr => {
         let uniq = [...new Set(temp2)];
         temp.push(uniq);
       }
-      arr[i + 1] = temp;
     }
     arr[i + 1] = temp;
   }
