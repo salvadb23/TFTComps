@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "94a5baeb7cec673f32790d08c473e3bb",
+    "revision": "ef5451fa8fbf25030d8005d4ec488757",
     "url": "/TFTComps/index.html"
   },
   {
-    "revision": "0f1f094a21475b632d04",
+    "revision": "e226eddfcbd013ec9ba3",
     "url": "/TFTComps/static/css/2.79966c17.chunk.css"
   },
   {
-    "revision": "1b9087aa81a1e27aaddf",
+    "revision": "b2d9f4b5391db49e4a06",
     "url": "/TFTComps/static/css/main.acc47d5c.chunk.css"
   },
   {
-    "revision": "0f1f094a21475b632d04",
-    "url": "/TFTComps/static/js/2.16b23d0b.chunk.js"
+    "revision": "e226eddfcbd013ec9ba3",
+    "url": "/TFTComps/static/js/2.4971abe4.chunk.js"
   },
   {
     "revision": "d705cb622423d72c5defbf368ca70dcc",
-    "url": "/TFTComps/static/js/2.16b23d0b.chunk.js.LICENSE"
+    "url": "/TFTComps/static/js/2.4971abe4.chunk.js.LICENSE"
   },
   {
-    "revision": "1b9087aa81a1e27aaddf",
-    "url": "/TFTComps/static/js/main.9d40ec46.chunk.js"
+    "revision": "b2d9f4b5391db49e4a06",
+    "url": "/TFTComps/static/js/main.e3c6a39e.chunk.js"
   },
   {
     "revision": "61905e86fcfed5bea9dd",
