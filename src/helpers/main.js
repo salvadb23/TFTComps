@@ -13,7 +13,7 @@ let traitJSON = arr => {
   return res;
 };
 
-let traitCheck = arr => {
+export let traitCheck = arr => {
   let res = {};
   let teamArr = [];
   let champObj = rewriteJSON(json);
@@ -59,7 +59,7 @@ let createObj = arr => {
   return res;
 };
 
-const createCombination = obj => {
+export const createCombination = obj => {
   let traits = createObj(json);
   let arr = [];
   let index = 0;
@@ -73,7 +73,7 @@ const createCombination = obj => {
   return arr;
 };
 
-const createComposition = arr => {
+export const createComposition = arr => {
   let length = arr.length;
   for (let i = 0; i < length - 1; i++) {
     let temp = [];
@@ -89,5 +89,3 @@ const createComposition = arr => {
   }
   return arr[arr.length - 1];
 };
-
-module.exports = { createCombination, createComposition, traitCheck };
